@@ -28,4 +28,11 @@ public class CustomerServiceIMP implements CustomerService {
 		return repo.getCustomerList();
 	}
 
+	@Override
+	public Customer getCustomerById(int id) {
+	
+		
+		return repo.getCustomerById(id);
+	}
+
 }

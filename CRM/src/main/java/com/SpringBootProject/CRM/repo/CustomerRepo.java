@@ -15,7 +15,7 @@ public class CustomerRepo {
 
     @Autowired
     private SessionFactory sessionFactory;
-
+//Add Data
     public String add(Customer customer) {
         Transaction transaction = null;
         try (Session session = sessionFactory.openSession()) {
@@ -28,7 +28,7 @@ public class CustomerRepo {
             throw e;  // or handle exception as needed
         }
     }
-    
+    //Get Data
     public  List <Customer> getCustomerList() {
     	Session session = sessionFactory.openSession();
     	
@@ -37,4 +37,17 @@ public class CustomerRepo {
     	
     	
     }
+    
+    //single data 
+    public  Customer getCustomerById(int id) {
+    	Session session = sessionFactory.openSession();
+    	  return session.get(Customer.class, id);
+    
+    	
+    	
+    }
+    
+    
+    
+    
 }

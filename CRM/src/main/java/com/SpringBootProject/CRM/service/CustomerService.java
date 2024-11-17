@@ -8,4 +8,5 @@ public interface CustomerService {
 
   String add(Customer customer); 
   List <Customer> getCustomer();
+ Customer getCustomerById(int id) ;
 }
