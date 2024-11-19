@@ -47,6 +47,49 @@ public class CustomerRepo {
     	
     }
     
+    //update data
+    @SuppressWarnings("deprecation")
+	public String updateCustomer(Customer customer) {
+    Session session = sessionFactory.openSession();
+    Transaction transaction =  session.beginTransaction();
+    	session.update(customer);
+    	transaction.commit();
+    	session.close();
+    	return "Customer updated successfully" ;
+    }
+    
+    //Delete
+    public String deleteCustomerById(int id) {
+    	
+    	Session session = sessionFactory.openSession();
+    	 Transaction transaction = session.beginTransaction();
+    	   Customer customer =   session.get(Customer.class, id);
+    	   session.delete(customer);
+    	   transaction.commit();
+    	   session.close();
+    	   return "Customer delete successfully";
+    	   
+    }
+    
+    // Insert Multiple customer
+    
+    public String insertMultipleCustomer(List <Customer> customers) {
+    	Session session = sessionFactory.openSession();
+    	Transaction transaction = session.beginTransaction();
+    	for ( Customer cr : customers) {
+    		session.save(cr);
+    		
+    	}
+    	transaction.commit();
+    	session.close();
+    	return "Customers are inserted succesfully";
+  
+    	
+    }
+    
+    
+    
+    
     
     
     

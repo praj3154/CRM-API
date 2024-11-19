@@ -35,4 +35,22 @@ public class CustomerServiceIMP implements CustomerService {
 		return repo.getCustomerById(id);
 	}
 
+	@Override
+	public String customerUpdate(Customer customer) {
+		// TODO Auto-generated method stub
+		return repo.updateCustomer(customer);
+	}
+
+	@Override
+	public String customerDateleById(int id) {
+		
+		return repo.deleteCustomerById(id);
+	}
+
+	@Override
+	public String insertMultipleCustomer(List<Customer> customers) {
+		// TODO Auto-generated method stub
+		return repo.insertMultipleCustomer(customers);
+	}
+
 }
