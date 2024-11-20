@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -87,6 +88,39 @@ public class CustomerRepo {
     	
     }
     
+    //find Customer by Name 
+    
+    public List<Customer> findCustomerByName ( String name) {
+    	
+    	Session session = sessionFactory.openSession();
+    	
+    	
+    	Query<Customer>  Customers = session.createQuery("from Customer c where c.name=: name" , Customer.class );
+    	
+    	Customers.setParameter("name", name);
+    	
+         return  Customers.list();
+    	
+    }
+    
+    //get customer By age
+    
+    public List <Customer> getCustomerByLessThanAge(int age) {
+    	Session session = sessionFactory.openSession();
+    Query<Customer> query =	session.createQuery("from Customer c where c.age <:age" , Customer.class);
+    	
+    query.setParameter("age", age);
+     return query.list();
+    	
+    }
+    public List <Customer> getCustomerByGreaterThanAge(int age) {
+    	Session session = sessionFactory.openSession();
+    Query<Customer> query =	session.createQuery("from Customer c where c.age >:age" , Customer.class);
+    	
+    query.setParameter("age", age);
+     return query.list();
+    	
+    }
     
     
     

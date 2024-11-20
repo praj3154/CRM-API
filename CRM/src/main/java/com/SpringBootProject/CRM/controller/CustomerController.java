@@ -58,6 +58,21 @@ public class CustomerController {
 		
 		return serviceIMP.insertMultipleCustomer(customers);
 	}
+	@GetMapping ("/byname/{name}")
+	  public List<Customer> findCustomerByName (  @PathVariable String  name) {
+		  
+		  return serviceIMP.findCustomerByName(name);
+		  
+	  }
+	@GetMapping("/byLessThanAge/{age}")
+	public List<Customer> getCustomerByLessThanAge( @PathVariable   int age) {
+		
+		return serviceIMP.getCustomerByLessThanAge(age);
+	}
 	
-	
+	@GetMapping("/byGraterThanAge/{age}")
+	public List<Customer> getCustomerByGraterThanAge( @PathVariable   int age) {
+		
+		return serviceIMP.getCustomerByGraterThanAge(age);
+	}
 }

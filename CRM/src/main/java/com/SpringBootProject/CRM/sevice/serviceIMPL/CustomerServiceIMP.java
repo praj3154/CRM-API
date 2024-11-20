@@ -53,4 +53,22 @@ public class CustomerServiceIMP implements CustomerService {
 		return repo.insertMultipleCustomer(customers);
 	}
 
+	@Override
+	public List<Customer> findCustomerByName(String Name) {
+		// TODO Auto-generated method stub
+		return repo.findCustomerByName(Name);
+	}
+
+	@Override
+	public List<Customer> getCustomerByLessThanAge(int age) {
+		// TODO Auto-generated method stub
+		return repo.getCustomerByLessThanAge(age);
+	}
+
+	@Override
+	public List<Customer> getCustomerByGraterThanAge(int age) {
+		// TODO Auto-generated method stub
+		return repo.getCustomerByGreaterThanAge(age);
+	}
+
 }
